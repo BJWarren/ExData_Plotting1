@@ -11,29 +11,9 @@ mydata$Sub_metering_2<-as.numeric(mydata$Sub_metering_2)
 mydata$Sub_metering_3<-as.numeric(mydata$Sub_metering_3)
 # Remove missing data
 mydata<-mydata[!is.na(mydata$Voltage),]
-#Plot1
-hist(mydata$Global_active_power,col="red",main="Global Active Power",xlab="Global Active Power (kilowatts)")
-#Plot2
-plot(mydata$dateTime,mydata$Global_active_power,type="l",xlab="",ylab="Global Active Power (kilowatts)")
 #Plot3
 plot(mydata$dateTime,mydata$Sub_metering_1,type="n",xlab="",ylab="Energy sub metering")
 points(mydata$dateTime,mydata$Sub_metering_1,type="l",col="black")
 points(mydata$dateTime,mydata$Sub_metering_2,type="l",col="red")
 points(mydata$dateTime,mydata$Sub_metering_3,type="l",col="blue")
 legend("topright",lty=c(1,1),col=c("black","red","blue"),legend=c("Sub_metering_1","Sub_metering_2","Sub_metering_3"))
-#Plot4
-par(mfrow=c(2,2))
-#
-plot(mydata$dateTime,mydata$Global_active_power,type="l",xlab="",ylab="Global Active Power (kilowatts)")
-#
-plot(mydata$dateTime,mydata$Voltage,type="l",xlab="datetime",ylab="Voltage")
-#
-plot(mydata$dateTime,mydata$Sub_metering_1,type="n",xlab="",ylab="Energy sub metering")
-points(mydata$dateTime,mydata$Sub_metering_1,type="l",col="black")
-points(mydata$dateTime,mydata$Sub_metering_2,type="l",col="red")
-points(mydata$dateTime,mydata$Sub_metering_3,type="l",col="blue")
-legend("topright",lty=c(1,1),col=c("black","red","blue"),legend=c("Sub_metering_1","Sub_metering_2","Sub_metering_3"))
-#
-plot(mydata$dateTime,mydata$Global_reactive_power,type="l",xlab="datetime",ylab="Global reactive power")
-
-
